@@ -98,12 +98,12 @@ static Status initPrograms(const char* cg2_path) {
 
     // V bumps the kernel requirement up to 4.19
     if (isAtLeastV && !isAtLeastKernelVersion(4, 19)) {
-        return Status("V+ platform with kernel version < 4.19.0 is unsupported");
+        ALOGW("V+ platform with kernel version < 4.19.0 is unsupported");
     }
 
     // 25Q2 bumps the kernel requirement up to 5.4
     if (isAtLeast25Q2 && !isAtLeastKernelVersion(5, 4)) {
-        return Status("25Q2+ platform with kernel version < 5.4.0 is unsupported");
+        ALOGW("25Q2+ platform with kernel version < 5.4.0 is unsupported");
     }
 
     unique_fd cg_fd(open(cg2_path, O_DIRECTORY | O_RDONLY | O_CLOEXEC));
